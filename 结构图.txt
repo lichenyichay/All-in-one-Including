@@ -1,0 +1,13 @@
+|--(你自己存放的文件夹）
+|----Allinone.py
+|----README.md
+|----LICENSE
+|----结构图.txt（本文件）
+|----module\
+|------book.py
+|------calculator.py
+|------erfenchazhao_py.py
+|------math_cal_py.py
+|------student_py.py
+|------tuxing_cal.py
+|------xiaogongju.py
