@@ -1,8 +1,8 @@
 # -*- coding:UTF-8 -*-
 # @Author:Chay
-# @TIME:2022/12/24 15:29
+# @TIME:2024/3/26 22:09
 # @FILE:calculator.py
-# @Software:IDLE 3.9.6
+# @Software:Visual Studio Code
 import math
 '''
 函数名：FtemporCtemp
@@ -64,16 +64,77 @@ def duihuan(mode,money):
         raise TypeError("TypeError:模式错误！")
 '''
 函数名：yiyuanerci
-调用形式：yiyuanerci(float1,float2,float3)
-:param float1 系数1
-:param float2 系数2
-:param float3 系数3
-:return x1 实数根1
-:return x2 实数根2
+调用形式：a = yiyuanerci(float1,float2,float3)
+:param float1 系数1 类型：float
+:param float2 系数2 类型：float
+:param float3 系数3 类型：float
+:return x1 实数根1 类型：float
+:return x2 实数根2 类型：float
 作用：求解一元二次方程
 '''
-def yiyuanerci(float1,float2,float3):
+def yiyuanerci(float1:float,float2:float,float3:float):
     dlt = float2 ** 2 - 4 * float1 * float3
     x1 = (-float2 + math.sqrt(dlt)) / 2 / float1
     x2 = (-float2 - math.sqrt(dlt)) / 2 / float1
     return f"x1 = {x1},x2 = {x2}"
+
+'''
+函数名：fanzhuanzifuchuan
+调用形式：a = fanzhuanzifuchuan(s)
+:param s 需要反转的字符串 类型：str
+:return s1 翻转后的字符串 类型：str
+作用：反转字符串
+'''
+
+def fanzhuanzifuchuan(s:str):
+    s=str(s)
+    s1=""
+    for i in range(len(s)-1,-1,-1):
+        j=0
+        s1 += s[i]
+        j+=1
+    return s1
+
+'''
+函数名：isparam
+调用形式：a = isparam(d)
+:param d  类型：int
+:return x 是否为质数 类型：bool(True or False)
+作用：判断质数
+'''
+def isparam(d:int):
+    for i in range(2,math.sqrt(d)+1):
+        if d%i==0:
+            return False
+    return True
+
+'''
+函数名：ishuiwenshu
+调用形式：a = ishuiwenshu(s)
+:param d  类型：int
+:return x 是否为回文数 类型：bool(True or False)
+作用：判断回文数
+'''
+def ishuiwenshu(d:int):
+    d1=int(fanzhuanzifuchuan(str(d)))
+    if d1==d:
+        return True
+    else:
+        return False
+
+'''
+函数名：ishuiwenzhishu
+调用形式：a = ishuiwenzhishu(d)
+:param d  类型：int
+:return x 是否为回文质数 类型：bool(True or False)
+作用：判断回文质数
+'''
+def ishuiwenzhishu(d:int):
+    d1=int(fanzhuanzifuchuan(str(d)))
+    if d1==d:
+        if isparam(d):
+            return True
+        else:
+            return False
+    else:
+        return False

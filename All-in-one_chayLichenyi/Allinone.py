@@ -1,10 +1,10 @@
 # -*- coding:UTF-8 -*-
 # @Author:Chay
-# @TIME:2023/3/28 20:20
+# @TIME:2024/3/26 22:09
 # @FILE:Allinone.py
-# @version:2.4.0
-# @Software: IntelliJ IDEA
-import os,math,time,random,string
+# @version:2.4.3
+# @Software:Visual Studio Code
+import math,random
 
 import module.book as book
 import module.calculator as calculator
@@ -31,13 +31,21 @@ def allinone(fuwu,mode,*args):
         num2 = args[1]
         for i1 in range(max(num1, num2), num1 * num2 + 1):
             if i1 % num1 == 0 and i1 % num2 == 0:
-                return il
+                return i1
     elif fuwu == "求最大公因数":
         num1 = args[0]
         num2 = args[1]
         return xiaogongju.twonumbers_TheBiggestCommonfactor(num1,num2)
     # elif fuwu == "快速排列":
     #     kuaisupailie()
+    elif fuwu=="反转字符串":
+        return calculator.fanzhuanzifuchuan(args[0])
+    elif fuwu=="判断质数":
+        return calculator.isparam(args[0])
+    elif fuwu=="判断回文数":
+        return calculator.ishuiwenshu(args[0])
+    elif fuwu=="判断回文质数":
+        return calculator.ishuiwenzhishu(args[0])
     elif fuwu == "图形计算器":
         while True:
             huida = args[0]
