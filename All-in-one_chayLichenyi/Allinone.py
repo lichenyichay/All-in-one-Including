@@ -1,8 +1,8 @@
 # -*- coding:UTF-8 -*-
 # @Author:Chay
-# @TIME:2024/3/26 22:09
+# @TIME:2024/3/29 22:55
 # @FILE:Allinone.py
-# @version:2.4.3
+# @version:2.4.4
 # @Software:Visual Studio Code
 import math,random
 
@@ -46,6 +46,16 @@ def allinone(fuwu,mode,*args):
         return calculator.ishuiwenshu(args[0])
     elif fuwu=="判断回文质数":
         return calculator.ishuiwenzhishu(args[0])
+    elif fuwu=="求斐波那契数列的第n项":
+        return calculator.fab(args[0])
+    elif fuwu=="判断斐波那契数":
+        return calculator.isfab(args[0])
+    elif fuwu=="判断斐波那契回文质数":
+        return calculator.isfabhuiwenzhishu(args[0])
+    elif fuwu=="判断斐波那契回文数":
+        return calculator.isfabhuiwenshu(args[0])
+    elif fuwu=="判断斐波那契质数":
+        return calculator.isfabparam(args[0])
     elif fuwu == "图形计算器":
         while True:
             huida = args[0]
@@ -62,7 +72,6 @@ def allinone(fuwu,mode,*args):
                     return "不支持该功能！"
             except ValueError:
                 return ("输入无效！")
-                break
     elif fuwu == "小学学生信息管理系统":
         student_py.student()
     elif fuwu == "二分查找":
@@ -77,7 +86,6 @@ def allinone(fuwu,mode,*args):
                 sleep(5)
             elif d == "no":
                 return 0
-                break
             else:
                 return ("指令无效！")
     elif fuwu == "求余":
@@ -87,7 +95,6 @@ def allinone(fuwu,mode,*args):
                 w2 = args[1]
                 w3 = w1 % w2
                 return w3
-                break
             except Exception as e:
                 raise Exception(repr(e))
     elif fuwu == "向下取整":
@@ -95,7 +102,6 @@ def allinone(fuwu,mode,*args):
             try:
                 w1 = args[0]
                 return int(w1)
-                break
             except Exception as e:
                 raise Exception(repr(e))
     elif fuwu == "向上取整":
@@ -103,7 +109,6 @@ def allinone(fuwu,mode,*args):
             try:
                 w1 = args[0]
                 return (int(w1)+1)
-                break
             except Exception as e:
                 raise Exception(repr(e))
     elif fuwu == "多个数求和":
@@ -137,43 +142,7 @@ def allinone(fuwu,mode,*args):
         except Exception as e:
             print(repr(e))
     elif fuwu == "判断闰年":
-            while True:
-                try:
-                    year = args[0]
-                    if (year % 4) == 0:
-                        if (year % 100) == 0:
-                            if (year % 400) == 0:
-                                return("{0} 是闰年".format(year))   # 整百年能被400整除的是闰年
-                            else:
-                                return("{0} 不是闰年".format(year))
-                        else:
-                            return("{0} 是闰年".format(year))       # 非整百年能被4整除的为闰年
-                    else:
-                        return("{0} 不是闰年".format(year))
-                    break
-                except Exception as e:
-                    raise Exception(repr(e))
-    elif fuwu == "判断是否为质数":
-        while True:
-            try:
-                # 用户输入数字
-                num = args[0]
-                # 质数大于 1
-                if num > 1:
-                    # 查看因子
-                    for i in range(2,num):
-                        if (num % i) == 0:
-                            return(num,"不是质数")
-                            break
-                    else:
-                        return(num,"是质数")
-                           
-                # 如果输入的数字小于或等于 1，不是质数
-                else:
-                    return(num,"不是质数")
-                break
-            except Exception as e:
-                print(repr(e))
+        return calculator.isleapyear(args[0])
     elif fuwu == "整数、小数计算-乘":
         if mode == "0":
             eee = args[0]

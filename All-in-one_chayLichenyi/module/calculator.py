@@ -1,6 +1,6 @@
 # -*- coding:UTF-8 -*-
 # @Author:Chay
-# @TIME:2024/3/26 22:09
+# @TIME:2024/3/29 22:55
 # @FILE:calculator.py
 # @Software:Visual Studio Code
 import math
@@ -103,6 +103,8 @@ def fanzhuanzifuchuan(s:str):
 作用：判断质数
 '''
 def isparam(d:int):
+    if d <= 1:
+        return False
     for i in range(2,math.sqrt(d)+1):
         if d%i==0:
             return False
@@ -136,5 +138,88 @@ def ishuiwenzhishu(d:int):
             return True
         else:
             return False
+    else:
+        return False
+'''
+函数名：fab
+调用形式：a = fab(d)
+:param x  类型：int
+:return a[x-1] 斐波那契数列的第x位
+作用：求斐波那契数列的第x位
+'''
+def fab(x):
+    a=[1,1]
+    for i in range(2,x):
+        a.append(a[i-1]+a[i-2])
+    for i in range(x):
+        print(a[i]," ")
+    return a[x-1]
+'''
+函数名：isfab
+调用形式：a = isfab(d)
+:param d  类型：int(0<d<=12586269025)
+:return x 是否为斐波那契数列中的一个数 类型：bool(True or False)
+作用：是否为斐波那契数列中的一个数
+'''
+def isfab(x):
+    a=[1,1]
+    for i in range(2,int(math.sqrt(x+2))):
+        a.append(a[i-1]+a[i-2])
+    if x not in a:
+        return False
+    else:
+        return True
+'''
+函数名：isfabparam
+调用形式：a = isfabparam(d)
+:param d  类型：int(0<d<=12586269025)
+:return x 是否是斐波那契质数 类型：bool(True or False)
+作用：是否为斐波那契数列中的一个数且为一个质数
+'''
+def isfabparam(x:int):
+    if isfab(x) and isparam(x):
+        return True
+    else:
+        return False
+'''
+函数名：isfabhuiwenshu
+调用形式：a = isfabhuiwenshu(d)
+:param d  类型：int(0<d<=12586269025)
+:return x 是否是斐波那契回文数 类型：bool(True or False)
+作用：是否为斐波那契数列中的一个数且为一个回文数
+'''
+def isfabhuiwenshu(x:int):
+    if isfab(x) and ishuiwenshu(x):
+        return True
+    else:
+        return False
+'''
+函数名：isfabhuiwenzhishu
+调用形式：a = isfabhuiwenzhishu(d)
+:param d  类型：int(0<d<=12586269025)
+:return x 是否是斐波那契回文质数 类型：bool(True or False)
+作用：是否为斐波那契数列中的一个数且为一个回文质数
+'''
+def isfabhuiwenzhishu(x:int):
+    if isfab(x) and ishuiwenzhishu(x):
+        return True
+    else:
+        return False
+'''
+函数名：isleapyear
+调用形式：a = isleapyear(d)
+:param d  类型：int
+:return x 对应年份是否是闰年 类型：bool(True or False)
+作用：判断闰年
+'''   
+def isleapyear(x):
+    if x%4==0:
+        if x%100==0:
+            if x%400==0:
+                return True
+            else:
+                return False
+        else:
+            return True
     else:
         return False
