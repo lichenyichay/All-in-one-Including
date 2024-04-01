@@ -11,7 +11,7 @@ import math
 :return 转换后的温度（不带单位）
 作用：华氏度与摄氏度转换
 '''
-def FtemporCtemp(mode,FtemporCtemp):
+def FtemporCtemp(mode:str,FtemporCtemp:float):
     if mode == "℃to℉":
         return FtemporCtemp*9/5+32
     elif mode == "℉to℃":
@@ -27,7 +27,7 @@ def FtemporCtemp(mode,FtemporCtemp):
 :return 转换后的货币数量
 作用：货币交换
 '''
-def duihuan(mode,money):
+def duihuan(mode:int,money:float):
     if mode == 1:
         return 0.14 * money #CNY to USD
     elif mode == 2:
@@ -140,6 +140,7 @@ def ishuiwenzhishu(d:int):
             return False
     else:
         return False
+
 '''
 函数名：fab
 调用形式：a = fab(d)
@@ -147,13 +148,14 @@ def ishuiwenzhishu(d:int):
 :return a[x-1] 斐波那契数列的第x位
 作用：求斐波那契数列的第x位
 '''
-def fab(x):
+def fab(x:int):
     a=[1,1]
     for i in range(2,x):
         a.append(a[i-1]+a[i-2])
     for i in range(x):
         print(a[i]," ")
     return a[x-1]
+
 '''
 函数名：isfab
 调用形式：a = isfab(d)
@@ -161,7 +163,7 @@ def fab(x):
 :return x 是否为斐波那契数列中的一个数 类型：bool(True or False)
 作用：是否为斐波那契数列中的一个数
 '''
-def isfab(x):
+def isfab(x:int):
     a=[1,1]
     for i in range(2,int(math.sqrt(x+2))):
         a.append(a[i-1]+a[i-2])
@@ -169,6 +171,7 @@ def isfab(x):
         return False
     else:
         return True
+
 '''
 函数名：isfabparam
 调用形式：a = isfabparam(d)
@@ -181,6 +184,7 @@ def isfabparam(x:int):
         return True
     else:
         return False
+
 '''
 函数名：isfabhuiwenshu
 调用形式：a = isfabhuiwenshu(d)
@@ -193,6 +197,7 @@ def isfabhuiwenshu(x:int):
         return True
     else:
         return False
+
 '''
 函数名：isfabhuiwenzhishu
 调用形式：a = isfabhuiwenzhishu(d)
@@ -205,6 +210,7 @@ def isfabhuiwenzhishu(x:int):
         return True
     else:
         return False
+
 '''
 函数名：isleapyear
 调用形式：a = isleapyear(d)
@@ -221,5 +227,93 @@ def isleapyear(x):
                 return False
         else:
             return True
+    else:
+        return False
+
+'''
+泰波那契序列 Tn 定义如下： 
+T0 = 0, T1 = 1, T2 = 1, 且在 n >= 0 的条件下 Tn+3 = Tn + Tn+1 + Tn+2
+函数名：tribonacci
+调用形式：a = tribonacci(d)
+:param x  类型：int
+:return a[x-1] 泰波那契序列的第x位
+作用：求泰波那契序列的第x位
+'''
+def tribonacci(n:int):
+    d=[0,1,1]
+    if n<=2:
+        return d[n]
+    else:
+        for i in range(3,n+1):
+            d.append(d[i-3]+d[i-2]+d[i-1])
+        return d[n]
+
+'''
+泰波那契序列 Tn 定义如下： 
+T0 = 0, T1 = 1, T2 = 1, 且在 n >= 0 的条件下 Tn+3 = Tn + Tn+1 + Tn+2
+函数名：istribonacci
+调用形式：a = istribonacci(d)
+:param x  类型：int
+:return x 是否属于泰波那契序列中的一个数（True or False）
+作用：判断是否属于泰波那契序列中的一个数
+'''
+def istribonacci(n:int):
+    a=[0,1,1]
+    if n>=10000:
+        for i in range(3,int(math.sqrt(n+3))):
+            a.append(a[i-1]+a[i-2]+a[i-3])
+    elif n>=1389537:
+        for i in range(3,int(math.sqrt(int(math.sqrt(n+3))))):
+            a.append(a[i-1]+a[i-2]+a[i-3])
+    else:
+        for i in range(3,int((n+3))):
+            a.append(a[i-1]+a[i-2]+a[i-3])
+    if n not in a:
+        return False
+    else:
+        return True
+
+'''
+泰波那契序列 Tn 定义如下： 
+T0 = 0, T1 = 1, T2 = 1, 且在 n >= 0 的条件下 Tn+3 = Tn + Tn+1 + Tn+2
+函数名：istribonaccihuiwenshu
+调用形式：a = istribonaccihuiwenshu(d)
+:param x  类型：int
+:return x 是否是泰波那契序列回文数（True or False）
+作用：判断泰波那契序列回文数
+'''
+def istribonaccihuiwenshu(n:int):
+    if istribonacci(n) and ishuiwenshu(n):
+        return True
+    else:
+        return False
+
+'''
+泰波那契序列 Tn 定义如下： 
+T0 = 0, T1 = 1, T2 = 1, 且在 n >= 0 的条件下 Tn+3 = Tn + Tn+1 + Tn+2
+函数名：istribonaccihuiwenshuparam
+调用形式：a = istribonaccihuiwenshuparam(d)
+:param x  类型：int
+:return x 是否是泰波那契序列回文质数（True or False）
+作用：判断泰波那契序列回文质数
+'''
+def istribonaccihuiwenshuparam(n:int):
+    if isfabhuiwenshu(n) and isparam(n):
+        return True
+    else:
+        return False
+
+'''
+泰波那契序列 Tn 定义如下： 
+T0 = 0, T1 = 1, T2 = 1, 且在 n >= 0 的条件下 Tn+3 = Tn + Tn+1 + Tn+2
+函数名：istribonacciparam
+调用形式：a = istribonacciparam(d)
+:param x  类型：int
+:return x 是否是泰波那契序列质数（True or False）
+作用：判断泰波那契序列质数
+'''
+def istribonacciparam(n:int):
+    if istribonacci(n) and isparam(n):
+        return True
     else:
         return False

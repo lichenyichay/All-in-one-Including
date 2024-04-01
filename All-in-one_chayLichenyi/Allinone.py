@@ -56,6 +56,16 @@ def allinone(fuwu,mode,*args):
         return calculator.isfabhuiwenshu(args[0])
     elif fuwu=="判断斐波那契质数":
         return calculator.isfabparam(args[0])
+    elif fuwu=="求泰波那契序列的第n项":
+        return calculator.tribonacci(args[0])
+    elif fuwu=="判断泰波那契数":
+        return calculator.istribonacci(args[0])
+    elif fuwu=="判断泰波那契回文质数":
+        return calculator.istribonaccihuiwenshuparam(args[0])
+    elif fuwu=="判断泰波那契回文数":
+        return calculator.istribonaccihuiwenshu(args[0])
+    elif fuwu=="判断泰波那契质数":
+        return calculator.istribonacciparam(args[0])
     elif fuwu == "图形计算器":
         while True:
             huida = args[0]
@@ -76,14 +86,13 @@ def allinone(fuwu,mode,*args):
         student_py.student()
     elif fuwu == "二分查找":
         while True:
-            d = input("请输入是否运行（运行输yes，否则输no）：")
+            d = args[0]
             if d == "yes":
                 a = args
                 b = sorted(a)
                 c = args[-1]
                 diaoyong  = erfenchazhao_py.erfenchazhao(a, b, c)
                 return(diaoyong)
-                sleep(5)
             elif d == "no":
                 return 0
             else:
