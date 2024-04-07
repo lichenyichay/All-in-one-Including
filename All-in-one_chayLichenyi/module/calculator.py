@@ -317,3 +317,49 @@ def istribonacciparam(n:int):
         return True
     else:
         return False
+
+'''
+函数名：iswanquanpingfangshu
+调用形式：a = iswanquanpingfangshu(d)
+:param d  类型：int
+:return x d是否是完全平方数 类型：bool(True or False)
+作用：判断完全平方数
+'''   
+def iswanquanpingfangshu(num:int) -> bool:
+    a=math.sqrt(num)
+    if int(a)==a:
+        return True
+    else:
+        return False
+
+'''
+函数名：wanquanpingfangshu
+调用形式：a = wanquanpingfangshu(d)
+:param d  类型：int
+:return x 第d个完全平方数
+作用：求第d个完全平方数
+'''
+def wanquanpingfangshu(num:int) -> int:
+    return num**2
+
+'''
+函数名：isfabwanquanpingfangshu
+调用形式：a = isfabwanquanpingfangshu(d)
+:param d  类型：int
+:return x d是否是斐波那契完全平方数 类型：bool(True or False)
+作用：判断斐波那契完全平方数
+'''  
+def isfabwanquanpingfangshu(num:int) -> bool:
+    return isfab(num) and iswanquanpingfangshu(num)
+
+'''
+泰波那契序列 Tn 定义如下： 
+T0 = 0, T1 = 1, T2 = 1, 且在 n >= 0 的条件下 Tn+3 = Tn + Tn+1 + Tn+2
+函数名：istribonacciwanquanpingfangshu
+调用形式：a = istribonacciwanquanpingfangshu(d)
+:param x  类型：int
+:return x 是否是泰波那契序列完全平方数（True or False）
+作用：判断泰波那契序列完全平方数
+'''
+def istribonacciwanquanpingfangshu(num:int) -> bool:
+    return istribonacci(num) and iswanquanpingfangshu(num)

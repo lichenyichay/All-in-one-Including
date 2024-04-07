@@ -66,6 +66,14 @@ def allinone(fuwu,mode,*args):
         return calculator.istribonaccihuiwenshu(args[0])
     elif fuwu=="判断泰波那契质数":
         return calculator.istribonacciparam(args[0])
+    elif fuwu=="求第n个完全平方数":
+        return calculator.wanquanpingfangshu(args[0])
+    elif fuwu=="判断完全平方数":
+        return calculator.iswanquanpingfangshu(args[0])
+    elif fuwu=="判断斐波那契完全平方数":
+        return calculator.isfabwanquanpingfangshu(args[0])
+    elif fuwu=="判断泰波那契序列完全平方数":
+        return calculator.istribonacciwanquanpingfangshu(args[0])
     elif fuwu == "图形计算器":
         while True:
             huida = args[0]
