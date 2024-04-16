@@ -1,6 +1,6 @@
 # -*- coding:UTF-8 -*-
 # @Author:Chay
-# @TIME:2024/3/29 22:55
+# @TIME:2024/4/16 23:07
 # @FILE:calculator.py
 # @Software:Visual Studio Code
 import math
@@ -363,3 +363,42 @@ T0 = 0, T1 = 1, T2 = 1, 且在 n >= 0 的条件下 Tn+3 = Tn + Tn+1 + Tn+2
 '''
 def istribonacciwanquanpingfangshu(num:int) -> bool:
     return istribonacci(num) and iswanquanpingfangshu(num)
+
+'''
+函数名：jinzhizhuanhuan
+调用形式：a =  jinzhizhuanhuan(a,b,c)
+:param a c的进制数 (2<=a<=36)
+:param b 结果的进制数 (2<=a<=36)
+:param c 需转换的数 无需前缀且需符合a进制规则
+:return z 结果
+'''
+def jinzhizhuanhuan(a:int,b:int,c:str) -> str:
+    if a == b:
+        return c
+    elif a == 10  and b != 10:
+        num = int(c)  
+        result = ""  
+        while num > 0:  
+            remainder = num % b  
+            if remainder >= 10:  
+                result += chr(remainder - 10 + ord('A'))  
+            else:  
+                result += str(remainder)  
+            num //= b
+        return result[::-1] 
+    elif a != 10 and b == 10:
+        ans=0
+        tmp=1
+        n=len(c)
+        for i in range(n-1,-1,-1):
+            base = 0
+            if c[i] >= 'A' and c[i] <= 'Z':
+                base = c[i]-'A'+10
+            else:
+                base = ord(c[i])-ord('0')
+            ans += tmp*base
+            tmp *= a
+        return str(ans)
+
+    else:
+        return jinzhizhuanhuan(10,b,jinzhizhuanhuan(a,10,c))

@@ -10,7 +10,7 @@
 :return 0
 作用：进行图形计算
 '''
-from math import pi
+import math
 def tuxing(huida,mode,*args2):
     while True:
         if huida == "长方体":

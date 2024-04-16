@@ -1,11 +1,10 @@
 # -*- coding:UTF-8 -*-
 # @Author:Chay
-# @TIME:2024/3/29 22:55
+# @TIME:2024/4/16 23:04
 # @FILE:Allinone.py
-# @version:2.4.4
+# @version:2.4.7
 # @Software:Visual Studio Code
 import math,random
-
 import module.book as book
 import module.calculator as calculator
 import module.erfenchazhao_py  as erfenchazhao_py
@@ -74,6 +73,10 @@ def allinone(fuwu,mode,*args):
         return calculator.isfabwanquanpingfangshu(args[0])
     elif fuwu=="判断泰波那契序列完全平方数":
         return calculator.istribonacciwanquanpingfangshu(args[0])
+    elif fuwu == "进制转换":
+        return calculator.jinzhizhuanhuan(args[0],args[1],args[2])
+    elif fuwu=="math库计算器":
+        return math_cal.math_cal(mode,args[0],args[1])
     elif fuwu == "图形计算器":
         while True:
             huida = args[0]

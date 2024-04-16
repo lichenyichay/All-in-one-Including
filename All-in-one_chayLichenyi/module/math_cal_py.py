@@ -12,7 +12,7 @@ import math
 例2：mode = 4:math_cal(4,0,0);例3：mode = 1:math_cal(1,5.92,-8)
 :return 结果
 '''
-def math_cal(mode,float1,float2):
+def math_cal(mode:int,float1:float,float2:float):
     if mode == 1:
         return math.copysign(float1,float2)
     elif mode == 2:
