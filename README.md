@@ -1,5 +1,5 @@
-# All-in-one
-多功能一体机
+# All-in-one Including
+多功能一体机库版本，现已更新至2.4.8版本
 说明如下：
 ```python
 Help on module Allinone:
@@ -10,9 +10,9 @@ NAME
 DESCRIPTION
     # -*- coding:UTF-8 -*-
     # @Author:Chay
-    # @TIME:2024/4/16 23:04
+    # @TIME:2024/4/19 23:41
     # @FILE:Allinone.py
-    # @version:2.4.7
+    # @version:2.4.8
     # @Software:Visual Studio Code
 
 FUNCTIONS
@@ -22,7 +22,7 @@ FUNCTIONS
         :param *args 可变参数，表示需要传入的参数，建议用元组或列表类型，具体所需类型见README.MD
         :return: 0：正常，1：不正常，其他返回值表示功能的结果
 
-        功能（按代码顺序排序，不分先后）：大小写互换、抽取随机数、求最小公倍数、求最大公倍数、图形计算器、小学学生信息管理系统、二分查找、求余、向下取整-、向上取整、多个数求和、多个数求差、多个数求积、判断闰年、判断是否为质数、整数、小数计算（加减乘除）、分数计算（加减乘除）......（具体见Github All-in-one2.4.0分支Readme.md文件
+        功能（按代码顺序排序，不分先后）：大小写互换、抽取随机数、求最小公倍数、求最大公倍数、图形计算器、小学学生信息管理系统、二分查找、求余、向下取整、向上取整、多个数求和、多个数求差、多个数求积、判断闰年、判断是否为质数、整数、小数计算（加减乘除）、分数计算（加减乘除）......（具体见Github All-in-one2.4.0分支Readme.md文件）
 
 FILE
     d:\chay\project\all-in-one\src\all-in-one_chaylichenyi\allinone.py
@@ -36,44 +36,46 @@ NAME
 DESCRIPTION
     # -*- coding:UTF-8 -*-
     # @Author:Chay
-    # @TIME:2024/4/16 23:07
+    # @TIME:2024/4/19 23:42
     # @FILE:calculator.py
     # @Software:Visual Studio Code
 
 FUNCTIONS
-    FtemporCtemp(mode: str, FtemporCtemp: float)
+    FtemporCtemp(mode: str, FtemporCtemp: float) -> float
 
-    duihuan(mode: int, money: float)
+    duihuan(mode: int, money: float) -> float
 
-    fab(x: int)
+    fab(x: int) -> int
 
-    fanzhuanzifuchuan(s: str)
+    factorization(num: int) -> list[int]
 
-    isfab(x: int)
+    fanzhuanzifuchuan(s: str) -> str
 
-    isfabhuiwenshu(x: int)
+    isfab(x: int) -> bool
 
-    isfabhuiwenzhishu(x: int)
+    isfabhuiwenshu(x: int) -> bool
 
-    isfabparam(x: int)
+    isfabhuiwenzhishu(x: int) -> bool
+
+    isfabparam(x: int) -> bool
 
     isfabwanquanpingfangshu(num: int) -> bool
 
-    ishuiwenshu(d: int)
+    ishuiwenshu(d: int) -> bool
 
-    ishuiwenzhishu(d: int)
+    ishuiwenzhishu(d: int) -> bool
 
-    isleapyear(x)
+    isleapyear(x) -> bool
 
-    isparam(d: int)
+    isparam(d: int) -> bool
 
-    istribonacci(n: int)
+    istribonacci(n: int) -> bool
 
-    istribonaccihuiwenshu(n: int)
+    istribonaccihuiwenshu(n: int) -> bool
 
-    istribonaccihuiwenshuparam(n: int)
+    istribonaccihuiwenshuparam(n: int) -> bool
 
-    istribonacciparam(n: int)
+    istribonacciparam(n: int) -> bool
 
     istribonacciwanquanpingfangshu(num: int) -> bool
 
@@ -81,14 +83,17 @@ FUNCTIONS
 
     jinzhizhuanhuan(a: int, b: int, c: str) -> str
 
-    tribonacci(n: int)
+    mima(num: int, n: int) -> int
+
+    tribonacci(n: int) -> int
 
     wanquanpingfangshu(num: int) -> int
 
-    yiyuanerci(float1: float, float2: float, float3: float)
+    yiyuanerci(float1: float, float2: float, float3: float) -> tuple
 
 FILE
     d:\chay\project\all-in-one\src\all-in-one_chaylichenyi\module\calculator.py
+
 
 
 Help on module erfenchazhao_py:

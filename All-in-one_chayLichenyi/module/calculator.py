@@ -1,9 +1,9 @@
 # -*- coding:UTF-8 -*-
 # @Author:Chay
-# @TIME:2024/4/16 23:07
+# @TIME:2024/4/19 23:42
 # @FILE:calculator.py
 # @Software:Visual Studio Code
-import math
+import math,itertools,random
 '''
 函数名：FtemporCtemp
 调用形式：a = FtemporCtemp(mode,FtemporCtemp)
@@ -11,7 +11,7 @@ import math
 :return 转换后的温度（不带单位）
 作用：华氏度与摄氏度转换
 '''
-def FtemporCtemp(mode:str,FtemporCtemp:float):
+def FtemporCtemp(mode:str,FtemporCtemp:float) -> float:
     if mode == "℃to℉":
         return FtemporCtemp*9/5+32
     elif mode == "℉to℃":
@@ -27,7 +27,7 @@ def FtemporCtemp(mode:str,FtemporCtemp:float):
 :return 转换后的货币数量
 作用：货币交换
 '''
-def duihuan(mode:int,money:float):
+def duihuan(mode:int,money:float) -> float:
     if mode == 1:
         return 0.14 * money #CNY to USD
     elif mode == 2:
@@ -72,11 +72,11 @@ def duihuan(mode:int,money:float):
 :return x2 实数根2 类型：float
 作用：求解一元二次方程
 '''
-def yiyuanerci(float1:float,float2:float,float3:float):
+def yiyuanerci(float1:float,float2:float,float3:float) -> tuple:
     dlt = float2 ** 2 - 4 * float1 * float3
     x1 = (-float2 + math.sqrt(dlt)) / 2 / float1
     x2 = (-float2 - math.sqrt(dlt)) / 2 / float1
-    return f"x1 = {x1},x2 = {x2}"
+    return (x1,x2)
 
 '''
 函数名：fanzhuanzifuchuan
@@ -86,7 +86,7 @@ def yiyuanerci(float1:float,float2:float,float3:float):
 作用：反转字符串
 '''
 
-def fanzhuanzifuchuan(s:str):
+def fanzhuanzifuchuan(s:str) -> str:
     s=str(s)
     s1=""
     for i in range(len(s)-1,-1,-1):
@@ -102,7 +102,7 @@ def fanzhuanzifuchuan(s:str):
 :return x 是否为质数 类型：bool(True or False)
 作用：判断质数
 '''
-def isparam(d:int):
+def isparam(d:int) -> bool:
     if d <= 1:
         return False
     for i in range(2,math.sqrt(d)+1):
@@ -117,7 +117,7 @@ def isparam(d:int):
 :return x 是否为回文数 类型：bool(True or False)
 作用：判断回文数
 '''
-def ishuiwenshu(d:int):
+def ishuiwenshu(d:int) -> bool:
     d1=int(fanzhuanzifuchuan(str(d)))
     if d1==d:
         return True
@@ -131,7 +131,7 @@ def ishuiwenshu(d:int):
 :return x 是否为回文质数 类型：bool(True or False)
 作用：判断回文质数
 '''
-def ishuiwenzhishu(d:int):
+def ishuiwenzhishu(d:int) -> bool:
     d1=int(fanzhuanzifuchuan(str(d)))
     if d1==d:
         if isparam(d):
@@ -148,7 +148,7 @@ def ishuiwenzhishu(d:int):
 :return a[x-1] 斐波那契数列的第x位
 作用：求斐波那契数列的第x位
 '''
-def fab(x:int):
+def fab(x:int) -> int:
     a=[1,1]
     for i in range(2,x):
         a.append(a[i-1]+a[i-2])
@@ -163,7 +163,7 @@ def fab(x:int):
 :return x 是否为斐波那契数列中的一个数 类型：bool(True or False)
 作用：是否为斐波那契数列中的一个数
 '''
-def isfab(x:int):
+def isfab(x:int) -> bool:
     a=[1,1]
     for i in range(2,int(math.sqrt(x+2))):
         a.append(a[i-1]+a[i-2])
@@ -179,7 +179,7 @@ def isfab(x:int):
 :return x 是否是斐波那契质数 类型：bool(True or False)
 作用：是否为斐波那契数列中的一个数且为一个质数
 '''
-def isfabparam(x:int):
+def isfabparam(x:int) -> bool:
     if isfab(x) and isparam(x):
         return True
     else:
@@ -192,7 +192,7 @@ def isfabparam(x:int):
 :return x 是否是斐波那契回文数 类型：bool(True or False)
 作用：是否为斐波那契数列中的一个数且为一个回文数
 '''
-def isfabhuiwenshu(x:int):
+def isfabhuiwenshu(x:int) -> bool:
     if isfab(x) and ishuiwenshu(x):
         return True
     else:
@@ -205,7 +205,7 @@ def isfabhuiwenshu(x:int):
 :return x 是否是斐波那契回文质数 类型：bool(True or False)
 作用：是否为斐波那契数列中的一个数且为一个回文质数
 '''
-def isfabhuiwenzhishu(x:int):
+def isfabhuiwenzhishu(x:int) -> bool:
     if isfab(x) and ishuiwenzhishu(x):
         return True
     else:
@@ -218,7 +218,7 @@ def isfabhuiwenzhishu(x:int):
 :return x 对应年份是否是闰年 类型：bool(True or False)
 作用：判断闰年
 '''   
-def isleapyear(x):
+def isleapyear(x) -> bool:
     if x%4==0:
         if x%100==0:
             if x%400==0:
@@ -239,7 +239,7 @@ T0 = 0, T1 = 1, T2 = 1, 且在 n >= 0 的条件下 Tn+3 = Tn + Tn+1 + Tn+2
 :return a[x-1] 泰波那契序列的第x位
 作用：求泰波那契序列的第x位
 '''
-def tribonacci(n:int):
+def tribonacci(n:int) -> int:
     d=[0,1,1]
     if n<=2:
         return d[n]
@@ -257,7 +257,7 @@ T0 = 0, T1 = 1, T2 = 1, 且在 n >= 0 的条件下 Tn+3 = Tn + Tn+1 + Tn+2
 :return x 是否属于泰波那契序列中的一个数（True or False）
 作用：判断是否属于泰波那契序列中的一个数
 '''
-def istribonacci(n:int):
+def istribonacci(n:int) -> bool:
     a=[0,1,1]
     if n>=10000:
         for i in range(3,int(math.sqrt(n+3))):
@@ -282,7 +282,7 @@ T0 = 0, T1 = 1, T2 = 1, 且在 n >= 0 的条件下 Tn+3 = Tn + Tn+1 + Tn+2
 :return x 是否是泰波那契序列回文数（True or False）
 作用：判断泰波那契序列回文数
 '''
-def istribonaccihuiwenshu(n:int):
+def istribonaccihuiwenshu(n:int) -> bool:
     if istribonacci(n) and ishuiwenshu(n):
         return True
     else:
@@ -297,7 +297,7 @@ T0 = 0, T1 = 1, T2 = 1, 且在 n >= 0 的条件下 Tn+3 = Tn + Tn+1 + Tn+2
 :return x 是否是泰波那契序列回文质数（True or False）
 作用：判断泰波那契序列回文质数
 '''
-def istribonaccihuiwenshuparam(n:int):
+def istribonaccihuiwenshuparam(n:int) -> bool:
     if isfabhuiwenshu(n) and isparam(n):
         return True
     else:
@@ -312,7 +312,7 @@ T0 = 0, T1 = 1, T2 = 1, 且在 n >= 0 的条件下 Tn+3 = Tn + Tn+1 + Tn+2
 :return x 是否是泰波那契序列质数（True or False）
 作用：判断泰波那契序列质数
 '''
-def istribonacciparam(n:int):
+def istribonacciparam(n:int) -> bool:
     if istribonacci(n) and isparam(n):
         return True
     else:
@@ -371,6 +371,7 @@ def istribonacciwanquanpingfangshu(num:int) -> bool:
 :param b 结果的进制数 (2<=a<=36)
 :param c 需转换的数 无需前缀且需符合a进制规则
 :return z 结果
+作用：进行进制转换
 '''
 def jinzhizhuanhuan(a:int,b:int,c:str) -> str:
     if a == b:
@@ -402,3 +403,40 @@ def jinzhizhuanhuan(a:int,b:int,c:str) -> str:
 
     else:
         return jinzhizhuanhuan(10,b,jinzhizhuanhuan(a,10,c))
+    
+'''
+函数名：factorization
+调用形式：a = facforization(num)
+:param num 需因式分解的自然数
+:return factor 因式分解的结果
+作用：对一个数进行因式分解
+'''
+def factorization(num:int) -> list[int]:
+    factor = []
+    while num > 1:
+        for i in range(num - 1):
+            k = i + 2
+            if num % k == 0:
+                factor.append(k)
+                num = int(num / k)
+                break
+    return factor
+
+'''
+函数名：mima
+调用形式：a = mima(num)
+:param num 提取密码的数字
+:param n 密码位数
+:return z 结果
+作用：对一个数提取密码
+'''
+def mima(num:int,n:int) -> int:
+    factor = factorization(num)
+    y = []
+    if n <= len(str(max(factor))):
+        for i in itertools.combinations(factor,n):
+            y.append(int(''.join('%d'%o for o in i)))
+        return random.choice(y)
+    else:
+        return 0
+   

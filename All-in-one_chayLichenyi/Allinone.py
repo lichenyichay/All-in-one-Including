@@ -1,8 +1,8 @@
 # -*- coding:UTF-8 -*-
 # @Author:Chay
-# @TIME:2024/4/16 23:04
+# @TIME:2024/4/19 23:41
 # @FILE:Allinone.py
-# @version:2.4.7
+# @version:2.4.8
 # @Software:Visual Studio Code
 import math,random
 import module.book as book
@@ -77,6 +77,10 @@ def allinone(fuwu,mode,*args):
         return calculator.jinzhizhuanhuan(args[0],args[1],args[2])
     elif fuwu=="math库计算器":
         return math_cal.math_cal(mode,args[0],args[1])
+    elif fuwu == "分解因式":
+        return calculator.factorization(args[0])
+    elif fuwu == "提取密码":
+        return calculator.mima(args[0],args[1])
     elif fuwu == "图形计算器":
         while True:
             huida = args[0]
