@@ -1,6 +1,8 @@
 # All-in-one Including
+
 多功能一体机库版本，现已更新至2.4.8版本
 说明如下：
+
 ```python
 Help on module Allinone:
 
@@ -178,20 +180,23 @@ NAME
 DESCRIPTION
     # -*- coding:UTF-8 -*-
     # @Author:Chay
-    # @TIME:2022/12/24 15:07
+    # @TIME:2024/4/25 22:52
     # @FILE:xiaogongju.py
     # @Software:IDLE 3.9.6
 
 FUNCTIONS
-    chouqusuiji(num1, num2, mode, weishu)
+    daorxiao(args:str,mode:int) ->str
 
-    daorxiao(args, mode)
+    twonumbers_TheBiggestCommonfactor(num1:int,num2:int) -> int
 
-    twonumbers_TheBiggestCommonfactor(num1, num2)
+    twonumbers_TheMinimumCommonmultiple(num1:int,num2:int) -> int
 
-    twonumbers_TheMinimumCommonmultiple(num1, num2)
+    chouqusuiji(num1:int,num2:int,mode:int,weishu:int) -> str
+
+    kaisamima(arg:str,mode:int,n:int) -> str
 
 FILE
     d:\chay\project\all-in-one\src\all-in-one_chaylichenyi\module\xiaogongju.py
 ```
-详见https://github.com/lichenyichay/All-in-one
+
+详见<https://github.com/lichenyichay/All-in-one>
