@@ -81,6 +81,8 @@ def allinone(fuwu,mode,*args):
         return calculator.factorization(args[0])
     elif fuwu == "提取密码":
         return calculator.mima(args[0],args[1])
+    elif fuwu == "凯撒密码计算":
+        return xiaogongju.kaisamima(args[0],mode,args[1])
     elif fuwu == "图形计算器":
         while True:
             huida = args[0]
