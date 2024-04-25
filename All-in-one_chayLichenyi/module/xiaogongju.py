@@ -1,6 +1,6 @@
 # -*- coding:UTF-8 -*-
 # @Author:Chay
-# @TIME:2022/12/24 15:07
+# @TIME:2024/04/25 22:52
 # @FILE:xiaogongju.py
 # @Software:IDLE 3.9.6
 import random,string
@@ -13,7 +13,7 @@ import random,string
 :return 0
 作用：大小写转换
 '''
-def daorxiao(args,mode):
+def daorxiao(args:str,mode:int) ->str:
     zongzifu = []
     zifu2=""
     gongneng1 = mode
@@ -50,7 +50,7 @@ def daorxiao(args,mode):
 :return num1和num2的最大公因数
 作用：求最大公因数
 '''
-def twonumbers_TheBiggestCommonfactor(num1,num2):
+def twonumbers_TheBiggestCommonfactor(num1:int,num2:int) -> int:
     lst = []
     for i in range(1,max(num1,num2)+1):
         if num1 % i == 0 and num2 % i == 0:
@@ -65,7 +65,7 @@ def twonumbers_TheBiggestCommonfactor(num1,num2):
 :return num1和num2的最小公倍数
 作用：求最小公倍数
 '''
-def twonumbers_TheMinimumCommonmultiple(num1,num2):
+def twonumbers_TheMinimumCommonmultiple(num1:int,num2:int) -> int:
     lst = []
     for i in range(1,max(num1,num2)+1):
         if num1 % i == 0 and num2 % i == 0:
@@ -81,9 +81,9 @@ def twonumbers_TheMinimumCommonmultiple(num1,num2):
 :param weishu 在随机字符串中字符串的位数
 作用：抽取随机
 '''
-def chouqusuiji(num1,num2,mode,weishu):
+def chouqusuiji(num1:int,num2:int,mode:int,weishu:int) -> str:
     if mode==1:
-        return random.randint(num1,num2)
+        return str(random.randint(num1,num2))
     elif mode==2:
         chars = string.ascii_letters + string.digits
         a=""
@@ -92,3 +92,42 @@ def chouqusuiji(num1,num2,mode,weishu):
         return a
     elif mode==3:
         return "#"+chouqusuiji(1,10,2,6)
+
+'''
+函数名：kaisamima
+调用形式：a = kaisamima(arg,mode,n)
+:param arg 需要加解密的字符串
+:param mode 1:加密  2:解密
+:param n 位移量
+作用：加解密凯撒密码
+'''
+def kaisamima(arg:str,mode:int,n:int) -> str:
+    a = []
+    for i in range(97,123):
+        a.append(chr(i))
+    b = []
+    for i in range(65,91):
+        b.append(chr(i))
+    a *= 2
+    b *= 2
+    c = ""
+    if mode == 1:
+        for i in range(len(arg)):
+            if 65 <= ord(arg[i]) and ord(arg[i]) <= 90:
+                c += b[b.index(arg[i])+n]
+            elif 97 <= ord(arg[i]) and ord(arg[i]) <= 122:
+                c += a[a.index(arg[i])+n]
+            else:
+                raise ValueError("arg应为只含字母的字符串")
+        return c
+    elif mode == 2:
+        for i in range(len(arg)):
+            if 65 <= ord(arg[i]) and ord(arg[i]) <= 90:
+                c += b[b.index(arg[i])-n]
+            elif 97 <= ord(arg[i]) and ord(arg[i]) <= 122:
+                c += a[a.index(arg[i])-n]
+            else:
+                raise ValueError("arg应为只含字母的字符串")
+        return c
+    else:
+        raise TypeError("TypeError:模式错误！")
