@@ -1,6 +1,6 @@
 # -*- coding:UTF-8 -*-
 # @Author:Chay
-# @TIME:2024/4/19 23:41
+# @TIME:2024/5/3 23:25
 # @FILE:Allinone.py
 # @version:2.4.8
 # @Software:Visual Studio Code
@@ -12,6 +12,8 @@ import module.math_cal_py as math_cal
 import module.student_py as student_py
 import module.tuxing_cal as tuxing_cal
 import module.xiaogongju as xiaogongju
+import module.lotterytickets as lt
+import module.numbertochinese as ntoc
 def allinone(fuwu,mode,*args):
     """
     :param fuwu 需要服务的功能
@@ -83,6 +85,10 @@ def allinone(fuwu,mode,*args):
         return calculator.mima(args[0],args[1])
     elif fuwu == "凯撒密码计算":
         return xiaogongju.kaisamima(args[0],mode,args[1])
+    elif fuwu == "彩票一体机":
+        return lt.lotterytickets(args[0],args[1],mode)
+    elif fuwu == "数字转中文":
+        return ntoc.No2Cn(args[0])
     elif fuwu == "图形计算器":
         while True:
             huida = args[0]
