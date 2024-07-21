@@ -1,16 +1,30 @@
 # -*- coding:UTF-8 -*-
 # @Author:Chay
-# @TIME:2024/04/25 22:52
+# @TIME:2024/07/21 17:20
 # @FILE:xiaogongju.py
 # @Software:IDLE 3.9.6
 import random,string
-
+'''
+函数名：quzheng
+调用形式：quzheng(num,mode)
+:param num 待取整的数字 float
+:param mode 模式 1（向下取整）/2（向上取整） 不在选择范围内则抛出异常
+:return 取整后的数字
+作用：对数字进行取整
+'''
+def quzheng(num:float,mode:int) -> int:
+    if mode == 1:
+        return int(num)
+    elif mode == 2:
+        return int(num)+1
+    else:
+        raise ValueError("mode需在1、2两数之间，不得为其他数！")
 '''
 函数名：daorxiao
 调用形式：daorxiao(args,mode)
 :param args 待转换的字符串
 :param mode 模式 1（大写转小写）/2（小写转大写） 不在选择范围内则抛出异常
-:return 0
+:return zifu 转换后的字符串
 作用：大小写转换
 '''
 def daorxiao(args:str,mode:int) ->str:
@@ -131,3 +145,24 @@ def kaisamima(arg:str,mode:int,n:int) -> str:
         return c
     else:
         raise TypeError("TypeError:模式错误！")
+
+def f(a:float,n:int,m:int) -> int:
+    if 0<n and n<m and m <= 9:
+        # 将浮点数 a 转换为整数部分和小数部分  
+        integer_part = int(a)  
+        decimal_part = round((a - integer_part) * 10, 2)  # 保留两位小数，以便比较  
+        first_decimal_digit = int(decimal_part[1:])  # 提取小数部分的第一位  
+    
+        # 根据规则进行判断  
+        if first_decimal_digit <= n:  
+            return integer_part  
+        elif first_decimal_digit >= m:  
+            return integer_part + 1  
+        else:  
+            # 当 m-n > 1，并且小数部分第一位在 n 和 m 之间时  
+            if integer_part % 2 == 1:  
+                return integer_part + 1  
+            else:  
+                return integer_part
+    else:
+        raise ValueError("不符合规则")

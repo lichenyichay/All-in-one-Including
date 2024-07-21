@@ -1,10 +1,10 @@
 # -*- coding:UTF-8 -*-
 # @Author:Chay
-# @TIME:2024/5/3 23:25
+# @TIME:2024/7/21 17:00
 # @FILE:Allinone.py
-# @version:2.4.8
+# @version:4.0.0
 # @Software:Visual Studio Code
-import math,random
+import math,random,fractions
 import module.book as book
 import module.calculator as calculator
 import module.erfenchazhao_py  as erfenchazhao_py
@@ -39,6 +39,8 @@ def allinone(fuwu,mode,*args):
         return xiaogongju.twonumbers_TheBiggestCommonfactor(num1,num2)
     # elif fuwu == "快速排列":
     #     kuaisupailie()
+    elif fuwu == "求解方程":
+        return calculator.yiyuannci(args[0],args[1])
     elif fuwu=="反转字符串":
         return calculator.fanzhuanzifuchuan(args[0])
     elif fuwu=="判断质数":
@@ -129,103 +131,16 @@ def allinone(fuwu,mode,*args):
                 return w3
             except Exception as e:
                 raise Exception(repr(e))
-    elif fuwu == "向下取整":
-        while True:
-            try:
-                w1 = args[0]
-                return int(w1)
-            except Exception as e:
-                raise Exception(repr(e))
-    elif fuwu == "向上取整":
-        while True:
-            try:
-                w1 = args[0]
-                return (int(w1)+1)
-            except Exception as e:
-                raise Exception(repr(e))
-    elif fuwu == "多个数求和":
-        try:
-            b = args
-            b = tuple(b)
-            b = math.fsum(b)
-            return (b)
-        except Exception as e:
-            raise Exception(repr(e))
-    elif fuwu == "多个数求差":
-        try:
-            b = 0
-            e = args
-            c = len(args)
-            b = e[0]
-            for i in range(c-1):
-                b -= e[1+i]
-            return (b)
-        except Exception as e:
-            raise Exception(repr(e))
-    elif fuwu == "多个数求积":
-        try:
-            b = 0
-            e = args
-            c = len(args)
-            b = e[0]
-            for i in range(c-1):
-                b *= e[1+i]
-            return(b)
-        except Exception as e:
-            print(repr(e))
+    elif fuwu == "取整":
+        return xiaogongju.quzheng(args[0],args[1])
     elif fuwu == "判断闰年":
         return calculator.isleapyear(args[0])
-    elif fuwu == "整数、小数计算-乘":
-        if mode == "0":
-            eee = args[0]
-            aaa = args[1]
-            qqq = eee * aaa
-            return("等于",qqq)
-        else:
-            eee = args[0]
-            aaa = args[1]
-            qqq = eee / aaa
-            return("等于",qqq)
-    elif fuwu == "分数计算-加":
-        try:
-            qw = args[0]
-            sd =args[1]
-            ad = args[2]
-            df = args[3]
-            sva = (sd/qw)+(df/ad)
-            return("等于",sva)
-        except Exception as e:
-            raise Exception(e)
-    elif fuwu == "分数计算-减":
-        try:
-            qw = args[0]
-            sd =args[1]
-            ad = args[2]
-            df = args[3]
-            sva = (sd/qw)-(df/ad)
-            return("等于",sva)
-        except Exception as e:
-            raise Exception(e)
-    elif fuwu == "分数计算-乘":
-        try:
-            qw = args[0]
-            sd =args[1]
-            ad = args[2]
-            df = args[3]
-            sva = (sd/qw)*(df/ad)
-            return("等于",sva)
-        except Exception as e:
-            raise Exception(e)
-    elif fuwu == "分数计算-除":
-        try:
-            qw = args[0]
-            sd =args[1]
-            ad = args[2]
-            df = args[3]
-            sva = (sd/qw)/(df/ad)
-            return("等于",sva)
-        except Exception as e:
-            raise Exception(e)
+    elif fuwu == "整数/小数计算":
+        return calculator.xiaoorzhengjisuan(args[0],args[1],args[2])
+    elif fuwu == "分数计算":
+        return calculator.fenjisuan(args[0],args[1],args[2])
+    elif fuwu == "分数小数转换":
+        return calculator.xiaoorfen(args[0],args[1])
     elif fuwu == "比大小":
         return args[0]>args[1]
     elif fuwu == "年龄计算":

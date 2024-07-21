@@ -1,9 +1,13 @@
 # -*- coding:UTF-8 -*-
 # @Author:Chay
-# @TIME:2024/4/19 23:42
+# @TIME:2024/07/21 17:20
 # @FILE:calculator.py
 # @Software:Visual Studio Code
-import math,itertools,random
+import math,itertools,random,re
+from cmath import sqrt as csqrt
+from sympy import *
+from fractions import *
+
 '''
 函数名：FtemporCtemp
 调用形式：a = FtemporCtemp(mode,FtemporCtemp)
@@ -65,18 +69,66 @@ def duihuan(mode:int,money:float) -> float:
 '''
 函数名：yiyuanerci
 调用形式：a = yiyuanerci(float1,float2,float3)
-:param float1 系数1 类型：float
-:param float2 系数2 类型：float
-:param float3 系数3 类型：float
-:return x1 实数根1 类型：float
-:return x2 实数根2 类型：float
-作用：求解一元二次方程
+:param fangcheng 方程 类型：str 要求：为ax+b=0 or ax^2+bx+c=0 or ax^3+bx^2+cx+d=0的形式
+:param mode 方程的最高次数 类型：int 为1、2、3中的一个
+:return gen 方程的解 类型：tuple
+作用：求解一元一、二、三次方程
 '''
-def yiyuanerci(float1:float,float2:float,float3:float) -> tuple:
-    dlt = float2 ** 2 - 4 * float1 * float3
-    x1 = (-float2 + math.sqrt(dlt)) / 2 / float1
-    x2 = (-float2 - math.sqrt(dlt)) / 2 / float1
-    return (x1,x2)
+def yiyuannci(fangcheng:str,mode:int) -> tuple:
+    if mode == 1:
+        l = fangcheng.split("=")
+        l = l[0].split("+")
+        for i in range(len(l)-1):
+            l[i] = int(l[i][0])
+        l[-1] = int(l[-1])
+        return (-(l[1]/l[0]))
+    elif mode == 2:
+        match = re.match(r'(\d+)x\^2\s*([-+])\s*(\d*)x\s*([-+])\s*(\d+)\s*=\s*0', fangcheng)
+        
+        # 提取系数
+        a = int(match.group(1))
+        sign_b = match.group(2)
+        b_str = match.group(3)
+        sign_c = match.group(4)
+        c = int(match.group(5))
+
+        # 处理b和c的符号
+        b = int(b_str) if sign_b == '+' else -int(b_str)
+        c = int(c) if sign_c == '+' else -int(c)
+
+        # 计算判别式
+        delta = b**2 - 4*a*c
+
+        # 根据判别式的值求解方程
+        if delta >= 0:
+            # 实数解
+            root1 = (-b + math.sqrt(delta)) / (2*a)
+            root2 = (-b - math.sqrt(delta)) / (2*a)
+            return (root1, root2)
+        else:
+            # 复数解
+            real_part = -b / (2*a)
+            imag_part = csqrt(-delta) / (2*a)
+            return (complex(real_part, imag_part.real), complex(real_part, -imag_part.real))
+
+    elif mode == 3:
+        fangcheng = fangcheng.replace("^","**")
+        fangcheng = fangcheng.replace("=0","")
+        # 定义符号
+        x = symbols('x')
+        
+        # 使用sympify将字符串转换为表达式
+        equation_expr = sympify(fangcheng)
+        
+        # 创建等式对象
+        eq = Eq(equation_expr, 0)
+        
+        # 解方程
+        solutions = solve(eq, x)
+        
+        return tuple(solutions)
+    else:
+        raise ValueError("param \"mode\" is >0 and <= 3 and \"mode\" is type int! mode参数需为1,2,3中的一个")
 
 '''
 函数名：fanzhuanzifuchuan
@@ -424,7 +476,7 @@ def factorization(num:int) -> list[int]:
 
 '''
 函数名：mima
-调用形式：a = mima(num)
+调用形式：a = mima(num,n)
 :param num 提取密码的数字
 :param n 密码位数
 :return z 结果
@@ -439,4 +491,33 @@ def mima(num:int,n:int) -> int:
         return random.choice(y)
     else:
         return 0
-   
+def xiaoorfen(num:str,mode:int) -> str:
+    if mode == 1: #小化分
+        return Fraction(float(num)).limit_denominator()
+    elif mode == 2: #分化小
+        return eval(num)
+    else:
+        raise ValueError("mode Error!")
+'''
+函数名：xiaoorzhengjisuan
+调用形式：a = xiaoorzhengjisuan(num1,num2,mode)
+:param num1 运算数字1
+:param num2 运算数字2
+:param mode 模式（运算符+-*/**（乘方）中的一个）
+:return z 结果
+作用：小数、整数计算
+'''
+def xiaoorzhengjisuan(num1:float,num2:float,mode:str) -> float:
+    return eval(str(num1)+mode+str(num2))
+
+'''
+函数名：fenjisuan
+调用形式：a = fenjisuan(num1,num2,mode)
+:param num1 运算数字1
+:param num2 运算数字2
+:param mode 模式（运算符+-*/**（乘方）中的一个）
+:return z 结果
+作用：分数计算
+'''
+def fenjisuan(num1:str,num2:str,mode:str) -> float:
+    return Fraction(eval(str(xiaoorfen(num1,2))+mode+str(xiaoorfen(num2,2)))).limit_denominator()
