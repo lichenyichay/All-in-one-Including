@@ -1,7 +1,7 @@
 # -*- coding:UTF-8 -*-
 # @Author:Chay
 # @TIME:2024/07/21 18:00
-# @FILE:Allinone.py
+# @FILE:numbertochinese.py
 # @version:4.0.0
 # @Software:Visual Studio Code
 numdict = {1:"一",2:"二",3:"三",4:"四",5:"五",6:"六",7:"七",8:"八",9:"九",0:"零"} #个位数的字典
@@ -54,27 +54,25 @@ def No2Cn(number:int) -> str:
     return chinese
 
 
-common_used_numerals_tmp ={'零':0, '一':1, '二':2, '三':3, '四':4, '五':5, '六':6, '日':7, '八':8, '九':9, '十':10}
-common_used_numerals = {}
-for key in common_used_numerals_tmp:
-  common_used_numerals[key.decode('utf8')] = common_used_numerals_tmp[key]
+common_used_numerals = {'零': 0, '一': 1, '二': 2, '三': 3, '四': 4, '五': 5, '六': 6, '日': 7, '八': 8, '九': 9, '十': 10, '百': 100, '千': 1000, '万': 10000, '亿': 100000000}
+
 def chinese2digits(uchars_chinese):
-  total = 0
-  r = 1
-  for i in range(len(uchars_chinese) - 1, -1, -1):
-    val = common_used_numerals.get(uchars_chinese[i])
-    if val >= 10 and i == 0:  #应对 十三 十四 十*之类
-      if val > r:
-        r = val
-        total = total + val
-      else:
-        r = r * val
-        #total =total + r * x
-    elif val >= 10:
-      if val > r:
-        r = val
-      else:
-        r = r * val
-    else:
-      total = total + r * val
-  return total
+    total = 0
+    r = 1
+    for i in range(len(uchars_chinese) - 1, -1, -1):
+        val = common_used_numerals.get(uchars_chinese[i])
+        if val >= 10 and i == 0:  # 应对 十三 十四 十*之类
+            if val > r:
+                r = val
+                total = total + val
+            else:
+                r = r * val
+                total = total + r
+        elif val >= 10:
+            if val > r:
+                r = val
+            else:
+                r = r * val
+        else:
+            total = total + r * val
+    return total

@@ -1,6 +1,6 @@
 # -*- coding:UTF-8 -*-
 # @Author:Chay
-# @TIME:2024/7/21 17:00
+# @TIME:2024/07/21 18:00
 # @FILE:Allinone.py
 # @version:4.0.0
 # @Software:Visual Studio Code
@@ -89,8 +89,11 @@ def allinone(fuwu,mode,*args):
         return xiaogongju.kaisamima(args[0],mode,args[1])
     elif fuwu == "彩票一体机":
         return lt.lotterytickets(args[0],args[1],mode)
-    elif fuwu == "数字转中文":
-        return ntoc.No2Cn(args[0])
+    elif fuwu == "数字中文互转":
+        if mode == 1:
+            return ntoc.No2Cn(args[0])
+        else:
+            return ntoc.chinese2digits(args[0])
     elif fuwu == "图形计算器":
         while True:
             huida = args[0]
@@ -122,15 +125,6 @@ def allinone(fuwu,mode,*args):
                 return 0
             else:
                 return ("指令无效！")
-    elif fuwu == "求余":
-        while True:
-            try:     
-                w1 = args[0]
-                w2 = args[1]
-                w3 = w1 % w2
-                return w3
-            except Exception as e:
-                raise Exception(repr(e))
     elif fuwu == "取整":
         return xiaogongju.quzheng(args[0],args[1])
     elif fuwu == "判断闰年":
@@ -140,7 +134,7 @@ def allinone(fuwu,mode,*args):
     elif fuwu == "分数计算":
         return calculator.fenjisuan(args[0],args[1],args[2])
     elif fuwu == "分数小数转换":
-        return calculator.xiaoorfen(args[0],args[1])
+        return calculator.xiaoorfen(args[0],mode)
     elif fuwu == "比大小":
         return args[0]>args[1]
     elif fuwu == "年龄计算":
