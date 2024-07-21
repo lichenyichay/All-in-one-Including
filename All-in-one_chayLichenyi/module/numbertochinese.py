@@ -1,8 +1,8 @@
 # -*- coding:UTF-8 -*-
 # @Author:Chay
-# @TIME:2024/5/3 23:25
+# @TIME:2024/07/21 18:00
 # @FILE:Allinone.py
-# @version:2.4.8
+# @version:4.0.0
 # @Software:Visual Studio Code
 numdict = {1:"一",2:"二",3:"三",4:"四",5:"五",6:"六",7:"七",8:"八",9:"九",0:"零"} #个位数的字典
 digitdict = {1:"十",2:"百",3:"千",4:"万"} #位称的字典
