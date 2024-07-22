@@ -5,3 +5,4 @@ All-in-one_chayLichenyi/module/__pycache__/
 *.toml
 setup.py
 .idea/
+All-in-one_chayLichenyi/__init__.py
