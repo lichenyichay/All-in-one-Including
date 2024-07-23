@@ -311,4 +311,4 @@ FILE
     d:\chay\project\all-in-one\src\all-in-one_chaylichenyi\module\tuxing_cal.py
 ```
 
-详见<https://github.com/lichenyichay/All-in-one>
+详见<https://github.com/lichenyichay/All-in-one> 和 <https://github.com/lichenyichay/All-in-one-Including/wiki>
