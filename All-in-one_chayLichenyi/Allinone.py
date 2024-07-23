@@ -24,7 +24,7 @@ def allinone(fuwu,mode,*args):
 
     功能（按代码顺序排序，不分先后）：大小写互换、抽取随机数、求最小公倍数、求最大公倍数、图形计算器、小学学生信息管理系统、二分查找、求余、向下取整、向上取整、多个数求和、多个数求差、多个数求积、判断闰年、判断是否为质数、整数、小数计算（加减乘除）、分数计算（加减乘除）......（具体见Github All-in-one2.4.0分支Readme.md文件）
     """
-    sjck.sjc(fuwu,mode,str(args))
+    sjck.sjc(fuwu,str(mode),str(args))
     if fuwu == "大小写互换":
         return xiaogongju.daorxiao(args[0],mode)
     elif fuwu == "抽取随机":

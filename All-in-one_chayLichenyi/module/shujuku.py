@@ -15,7 +15,7 @@ def sjc(fuwu:str,mode:int,canshu:str):
     CREATE TABLE IF NOT EXISTS "All-in-one库使用数据" (
         "ID"	INTEGER NOT NULL UNIQUE,
         "使用功能"	TEXT NOT NULL,
-        "模式" INTERGER
+        "模式" TEXT
         "参数"	TEXT NOT NULL,
         PRIMARY KEY("ID" AUTOINCREMENT)
     );
