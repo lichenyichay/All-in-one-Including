@@ -1,6 +1,6 @@
 # -*- coding:UTF-8 -*-
 # @Author:Chay
-# @TIME:2024/07/21 17:20
+# @TIME:2024/08/31 08:05
 # @FILE:calculator.py
 # @Software:Visual Studio Code
 import math,itertools,random,re
@@ -521,3 +521,14 @@ def xiaoorzhengjisuan(num1:float,num2:float,mode:str) -> float:
 '''
 def fenjisuan(num1:str,num2:str,mode:str) -> float:
     return Fraction(eval(str(xiaoorfen(num1,2))+mode+str(xiaoorfen(num2,2)))).limit_denominator()
+
+'''
+函数名：bmi
+调用形式：a = bmi(weight,height)
+:param weight 体重（KG）
+:param height 身高（m）
+:return BMI BMI指数
+作用：计算BMI指数
+'''
+def bmi(weight:int,height:int) -> float:
+    return weight/(height**2)

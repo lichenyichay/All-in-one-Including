@@ -1,11 +1,10 @@
 # -*- coding:UTF-8 -*-
 # @Author:Chay
-# @TIME:2024/07/23 17:00
+# @TIME:2024/08/31 13:40
 # @FILE:Allinone.py
 # @version:4.0.2
 # @Software:Visual Studio Code
-import math,random,fractions
-import module.book as book
+import random
 import module.calculator as calculator
 import module.erfenchazhao_py  as erfenchazhao_py
 import module.math_cal_py as math_cal
@@ -174,6 +173,8 @@ def allinone(fuwu,mode,*args):
             return args[0]/args[1]/args[2]
     elif fuwu == "货币转换":
         return calculator.duihuan(mode,args[0]) 
+    elif fuwu == "BMI计算":
+        return calculator.bmi(args[0],args[1])
     else:
         jieshulist = ["功能无效！", "无法实现服务！", "暂时还在开发！"]
         b = random.choice(jieshulist)
