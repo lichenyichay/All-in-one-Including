@@ -325,4 +325,41 @@ FILE
     d:\chay\project\all-in-one\src\all-in-one_chaylichenyi\module\tuxing_cal.py
 ```
 
+### inequalitychay.py 不等式计算模块
+
+```python
+Help on module inequalitychay:
+
+NAME
+    inequalitychay
+
+FUNCTIONS
+    getrandbits(k, /) method of random.Random instance
+        getrandbits(k) -> x.  Generates an int with k random bits.
+
+    random() method of random.Random instance
+        random() -> x in the interval [0, 1).
+
+    solveine(s: str) -> str
+        Solves a linear inequality expression and returns the solution set.
+
+        Args:
+            s (str): The inequality expression as a string.
+
+        Returns:
+            str: The solution set of the inequality expression.
+
+    suijiine(dif: int) -> str
+        Generates a random inequality expression with a given level of difficulty.
+
+        Args:
+            dif (int): The difficulty level of the inequality expression, which determines the number of operations.
+
+        Returns:
+            str: A randomly generated inequality expression.
+
+FILE
+    d:\chay\project\inequality-including\src\inequalitychay\inequalitychay.py
+```
+
 详见<https://github.com/lichenyichay/All-in-one> 和 <https://github.com/lichenyichay/All-in-one-Including/wiki>

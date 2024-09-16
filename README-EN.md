@@ -18,15 +18,17 @@ This project has the same functionality as the All-in-one-chay library. However,
 
 ## Module Index
 
-Line 31 Allinone Main Module Documentation
+Line 33 Allinone Main Module Documentation
 
-Line 37 Calculator Module Documentation
+Line 39 Calculator Module Documentation
 
-Line 342 Xiaogongju Module Documentation
+Line 344 Xiaogongju Module Documentation
 
-Line 429 Math_calculator Module Documentation
+Line 431 Math_calculator Module Documentation
 
-Line 491 Tuxing_calculator Module Documentation
+Line 493 Tuxing_calculator Module Documentation
+
+Line 577 Inequaliity Module Documentation
 
 ## Allinone Main Module Documentation
 
@@ -571,3 +573,31 @@ The result of the calculation, or:
 周长 (Perimeter)
 方中圆 (Circle in Square)
 圆中方 (Square in Circle)
+
+## inequality Module Documentation
+
+### Function Overview
+
+This code provides two main functionalities: suijiine for generating random inequality expressions based on a specified level of difficulty (i.e., the number of operations), and solveine for solving linear inequality expressions and returning the solution set.
+
+### Function suijiine(dif: int) -> str
+
+Functionality: Generates a random inequality expression based on the given difficulty level (dif).
+Parameters:
+dif (int): The difficulty level of the inequality expression, which determines the number of operations.
+Returns:
+str: A randomly generated inequality expression string.
+
+### Function solveine(s: str) -> str
+
+Functionality: Solves a given linear inequality expression and returns the solution set.
+Parameters:
+s (str): The linear inequality expression as a string.
+Returns:
+str: The solution set of the inequality expression.
+
+### Notes
+
+It assumes the input inequality is linear and has only one unknown x.
+If a (the coefficient of x on the left side of the inequality) is 0, it returns "All real numbers" or "No solution" depending on the value of b.
+Uses fractions.Fraction to handle fractions, ensuring that the solution set is returned in fractional form if possible.
