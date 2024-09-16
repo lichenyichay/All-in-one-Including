@@ -11,9 +11,9 @@ import module.math_cal_py as math_cal
 import module.student_py as student_py
 import module.tuxing_cal as tuxing_cal
 import module.xiaogongju as xiaogongju
-import lotterytickets as lt
-import numberandchinese as ntoc
-import module.shujuku as sjck
+import module.lotterytickets as lt
+import module.numberandchinese as ntoc
+import module.UnitConvertChay as UC
 def allinone(fuwu,mode,*args):
     """
     :param fuwu 需要服务的功能
@@ -23,7 +23,6 @@ def allinone(fuwu,mode,*args):
 
     功能（按代码顺序排序，不分先后）：大小写互换、抽取随机数、求最小公倍数、求最大公倍数、图形计算器、小学学生信息管理系统、二分查找、求余、向下取整、向上取整、多个数求和、多个数求差、多个数求积、判断闰年、判断是否为质数、整数、小数计算（加减乘除）、分数计算（加减乘除）......（具体见Github All-in-one2.4.0分支Readme.md文件）
     """
-    sjck.sjc(fuwu,str(mode),str(args))
     if fuwu == "大小写互换":
         return xiaogongju.daorxiao(args[0],mode)
     elif fuwu == "抽取随机":
@@ -175,6 +174,8 @@ def allinone(fuwu,mode,*args):
         return calculator.duihuan(mode,args[0]) 
     elif fuwu == "BMI计算":
         return calculator.bmi(args[0],args[1])
+    elif fuwu == "单位换算" or fuwu == "物理量计算":
+        return UC.UnitConverter(mode,args[0])
     else:
         jieshulist = ["功能无效！", "无法实现服务！", "暂时还在开发！"]
         b = random.choice(jieshulist)
