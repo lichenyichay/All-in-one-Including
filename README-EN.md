@@ -1,16 +1,32 @@
 # Allinone Readme in English/英文版Allinone使用说明
 
+Using the Allinoneincluding library, you can use
+
+```py
+from Allinoneincluding import *
+```
+
+or
+
+```py
+import Allinoneincluding as aioi #When you didn't install aioi library
+```
+
+codes.
+
+This project has the same functionality as the All-in-one-chay library. However,due to configuration issues with the library files, the original library cannot be used normally. Please download the Allinoneincluding library. Thank you!
+
 ## Module Index
 
-Line 11 Allinone Main Module Documentation
+Line 31 Allinone Main Module Documentation
 
-Line 17 Calculator Module Documentation
+Line 37 Calculator Module Documentation
 
-Line 322 Xiaogongju Module Documentation
+Line 342 Xiaogongju Module Documentation
 
-Line 409 Math_calculator Module Documentation
+Line 429 Math_calculator Module Documentation
 
-Line 471 Tuxing_calculator Module Documentation
+Line 491 Tuxing_calculator Module Documentation
 
 ## Allinone Main Module Documentation
 

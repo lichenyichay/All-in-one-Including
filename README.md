@@ -4,38 +4,52 @@
 
 Line 9 中文版README
 
-Line 348 Readme in English
+Line 362 Readme in English
 
 ## 中文版Readme
 
 ### All-in-one Including
 
-多功能一体机库版本，现已更新至4.0.0版本
+注：导入时请使用
+
+```py
+from Allinoneincluding import *
+```
+
+或
+
+```py
+import Allinoneincluding as aioi #你没有安装aioi时
+```
+
+且本项目与All-in-one-chay库功能相同，由于库文件配置问题，导致源库无法正常使用，请下载本库，谢谢！
+
+多功能一体机库版本，现已更新至4.1.0版本
 说明如下：
 
 #### 模块说明
 
 ##### 目录
 
-Line 40 Allinone.py 主文件
+Line 54 Allinone.py 主文件
 
-Line 70 shujuku.py 数据库文件
+Line 84 shujuku.py 数据库文件
 
-Line 94 xiaogongju.py 模块文件
+Line 108 xiaogongju.py 模块文件
 
-Line 128 calculator.py 计算器模块
+Line 142 calculator.py 计算器模块
 
-Line 205 numbertochinese.py 数字、中文互换模块
+Line 219 numbertochinese.py 数字、中文互换模块
 
-Line 237 lotterytickets.py 彩票一体机模块
+Line 251 lotterytickets.py 彩票一体机模块
 
-Line 260 erfenchazhao_py.py 二分查找模块
+Line 274 erfenchazhao_py.py 二分查找模块
 
-Line 282 marh_cal.py math库计算器模块
+Line 296 marh_cal.py math库计算器模块
 
-Line 304 student_py.py 小学学生信息管理系统模块
+Line 318 student_py.py 小学学生信息管理系统模块
 
-Line 324 tuxing_cal.py 图形计算器模块
+Line 338 tuxing_cal.py 图形计算器模块
 
 ##### Allinone.py 主文件
 
@@ -349,17 +363,33 @@ FILE
 
 ### Allinone Readme in English/英文版Allinone使用说明
 
+Using the Allinoneincluding library, you can use
+
+```py
+from Allinoneincluding import *
+```
+
+or
+
+```py
+import Allinoneincluding as aioi #When you didn't install aioi library
+```
+
+codes.
+
+This project has the same functionality as the All-in-one-chay library. However,due to configuration issues with the library files, the original library cannot be used normally. Please download the Allinoneincluding library. Thank you!
+
 #### Module Index
 
-Line 364 Allinone Main Module Documentation
+Line 394 Allinone Main Module Documentation
 
-Line 370 Calculator Module Documentation
+Line 400 Calculator Module Documentation
 
-Line 673 Xiaogongju Module Documentation
+Line 703 Xiaogongju Module Documentation
 
-Line 760 Math_calculator Module Documentation
+Line 790 Math_calculator Module Documentation
 
-Line 820 Tuxing_calculator Module Documentation
+Line 850 Tuxing_calculator Module Documentation
 
 #### Allinone Main Module Documentation
 

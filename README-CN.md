@@ -1,6 +1,20 @@
 # All-in-one Including
 
-多功能一体机库版本，现已更新至4.0.0版本
+注：导入时请使用
+
+```py
+from Allinoneincluding import *
+```
+
+或
+
+```py
+import Allinoneincluding as aioi #你没有安装aioi时
+```
+
+且本项目与All-in-one-chay库功能相同，由于库文件配置问题，导致源库无法正常使用，请下载Allinoneincluding库，谢谢！
+
+多功能一体机库版本，现已更新至4.1.0版本
 说明如下：
 
 ## 模块说明
