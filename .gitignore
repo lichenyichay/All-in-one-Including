@@ -1,8 +1,11 @@
 *.iml
 __pycache__/
-All-in-one_chayLichenyi/__pycache__/
-All-in-one_chayLichenyi/module/__pycache__/
+python/__pycache__/
 *.toml
 setup.py
 .idea/
-All-in-one_chayLichenyi/__init__.py
+python/__init__.py
+C++/.vs/*
+*.sln
+*.vcxproj.*
+*.vcxproj
