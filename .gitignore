@@ -3,3 +3,5 @@ C++Allinone/*.sln
 C++Allinone/*.vcxproj.*
 C++Allinone/*.vcxproj
 C++Allinone/.vs/
+C++Allinone/x64/
+C++Allinone/C++Allinone/x64
