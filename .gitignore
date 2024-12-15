@@ -1,11 +1,5 @@
-*.iml
-__pycache__/
-python/__pycache__/
-*.toml
-setup.py
-.idea/
-python/__init__.py
-C++/.vs/*
-*.sln
-*.vcxproj.*
-*.vcxproj
+C++/*.vs
+C++/*.sln
+C++/*.vcxproj.*
+C++/*.vcxproj
+C++/.vs/
