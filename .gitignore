@@ -1,7 +1,13 @@
-C++Allinone/*.vs
+*.iml
+__pycache__/
+python/__pycache__/
+*.toml
+setup.py
+.idea/
+python/__init__.py
+C++Allinone/.vs/*
 C++Allinone/*.sln
 C++Allinone/*.vcxproj.*
 C++Allinone/*.vcxproj
-C++Allinone/.vs/
-C++Allinone/x64/
-C++Allinone/C++Allinone/x64
+C++Allinone/x64/*
+C++Allinone/C++Allinone/x64/*
