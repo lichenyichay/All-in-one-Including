@@ -4,7 +4,7 @@
 #include "pch.h"
 double FtemporCtemp(int mode,double temp);
 double change(int mode, double money);
-pair<double,double> slovefc(string fc, int mode);
+vector<Complex> slovefc(string fc, int mode);
 #endif
 
 

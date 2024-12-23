@@ -59,23 +59,28 @@ double change(int mode, double money) {
 			throw invalid_argument("类型错误！");
 	}
 }
-pair<double,double> slovefc(string fc, int mode) {
+static Complex cubicRoot(Complex z) {
+	return std::pow(z, 1.0 / 3.0);
+}
+vector<Complex> slovefc(string fc, int mode) {
+	vector<Complex> d;
 	if (mode == 1) {
-		regex pattern("(\d+)x\s*([-+])\s*(\d+)\s*=\s*0");
+		regex pattern("(\d+)x\s*([-+])\s*(\d*)\s*=\s*0");
 		smatch result;
 		if (regex_match(fc, result, pattern)) {
 			int a = stoi(result[1].str());
 			char sign_b = result[2].str()[0];
 			int b = stoi(result[3].str());
 			b = (sign_b == '-') ? -b : b;
-			return { (-b / (double)a),INFINITY };
+			d.push_back(complex<double>( - b / (double)a,0));
+			return d;
 		}
 		else {
 			throw invalid_argument("方程格式错误，应为ax+b=0的形式（a!=0)");
 		}
 	}
 	else if (mode == 2) {
-		regex pattern("(\d+)x\^2\s*([-+])\s*(\d*)x\s*([-+])\s*(\d+)\s*=\s*0");
+		regex pattern("(\d+)x\^2\s*([-+])\s*(\d*)x\s*([-+])\s*(\d*)\s*=\s*0");
 		smatch result;
 		if (regex_match(fc, result, pattern)) {
 			int a = stoi(result[1].str());
@@ -86,11 +91,40 @@ pair<double,double> slovefc(string fc, int mode) {
 			int c = stoi(result[5].str());
 			c = (sign_c == '-') ? -c : c;
 			if (b * b - 4 * a * c < 0) {
-				throw;
+				double realPart = -b / double(2 * a);
+				double imaginaryPart = sqrt(-(b * b - 4 * a * c)) / (2 * a);
+				Complex root1(realPart, imaginaryPart);
+				Complex root2(realPart, -imaginaryPart);
+				d.push_back(root1);
+				d.push_back(root2);
 			}
 			else {
-				return { (-b + sqrtf(b * b - 4 * a * c)) / (2.0 * a), (-b - sqrtf(b * b - 4 * a * c)) / (2.0 * a) };
+				d.push_back(complex<double>((-b + sqrtf(b * b - 4 * a * c)) / (2.0 * a),0));
+				d.push_back(complex<double>((-b - sqrtf(b * b - 4 * a * c)) / (2.0 * a),0));
 			}
+			return d;
+		}
+		else {
+			throw invalid_argument("方程格式错误，应为a^2+bx+c=0的形式（a!=0)");
+		}
+	}
+	else if (mode == 3) {
+		regex pattern("(\d+)x\^3\s*([-+])(\d*)x\^2\s*([-+])\s*(\d*)x\s*([-+])\s*(\d*)\s*=\s*0");
+		smatch result;
+		if (regex_match(fc, result, pattern)) {
+			int a = stoi(result[1].str());
+			char sign_b = result[2].str()[0];
+			int b = stoi(result[3].str());
+			b = (sign_b == '-') ? -b : b;
+			char sign_c = result[4].str()[0];
+			int c = stoi(result[5].str());
+			c = (sign_c == '-') ? -c : c;
+			char sign_d = result[6].str()[0];
+			int d = stoi(result[6].str());
+			d = (sign_d == '-') ? -d : d;
+		}
+		else {
+			throw invalid_argument("方程格式错误，应为a^3+bx^2+cx+d=0的形式（a!=0)");
 		}
 	}
 	else throw invalid_argument("类型错误！");

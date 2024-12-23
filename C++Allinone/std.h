@@ -16,6 +16,8 @@
 
 // 数学函数
 #include <cmath>
+#include <complex>
+using Complex = std::complex<double>;
 
 // 内存管理
 #include <memory>
