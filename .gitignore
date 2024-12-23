@@ -5,7 +5,9 @@ python/__pycache__/
 setup.py
 .idea/
 python/__init__.py
-C++/.vs/*
-*.sln
-*.vcxproj.*
-*.vcxproj
+C++Allinone/.vs/*
+C++Allinone/*.sln
+C++Allinone/*.vcxproj.*
+C++Allinone/*.vcxproj
+C++Allinone/x64/*
+C++Allinone/C++Allinone/x64/*
