@@ -11,3 +11,4 @@ C++Allinone/*.vcxproj.*
 C++Allinone/*.vcxproj
 C++Allinone/x64/*
 C++Allinone/C++Allinone/x64/*
+C++Allinone/.vscode/*
